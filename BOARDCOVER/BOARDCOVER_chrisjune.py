@@ -8,60 +8,54 @@ cards = [
 ]
 board = []
 
-def count_board(r, c, blank_count):
+def count_board(blank_count):
     global count
-    rows = len(board)
-    cols = len(board[0])
+    first_free = (-1,-1)
+    if blank_count % 3 != 0:
+        return
 
-    if blank_count == 0:
+    # find first index
+    for row in range(len(board)):
+        for col in range(len(board[0])):
+            if board[row][col] == 0:
+                first_free = (row,col)
+                break
+        if first_free!=(-1,-1):
+            break
+
+    if first_free == (-1, -1):
         count+=1
-        print(count)
+        return
 
-    for row in range(rows):
-        for col in range(cols):
-            # if col<c or row<r:
-            #     continue
-            if board[row][col] == '#':
-                continue
+    for card in cards:
+        if covered(first_free, card, 1):
+            count_board(blank_count-3)
+        covered(first_free, card, -1)
 
-            for i in range(len(cards)):
-                card = cards[i]
-                if 0<=row+card[1][0] <rows and 0<=row+card[2][0]<rows and 0<=col+card[1][1]<cols and 0<=col+card[2][1]<cols:
-                    if board[row + card[0][0]][col + card[0][1]] == board[row + card[1][0]][col + card[1][1]] == board[row + card[2][0]][col + card[2][1]] == '.':
-                        board[row + card[0][0]][col + card[0][1]] = board[row + card[1][0]][col + card[1][1]] = board[row + card[2][0]][col + card[2][1]] = '#'
-                        for rowss in board:
-                            print(rowss)
-                        print()
-                        count_board(row, col, blank_count-3)
-                        board[row + card[0][0]][col + card[0][1]] = board[row + card[1][0]][col + card[1][1]] = board[row + card[2][0]][col + card[2][1]] = '.'
+def covered(location, cards, action):
+    result = True
+    for card in cards:
+        row = location[0]+card[0]
+        col = location[1]+card[1]
+        if row<0 or row>=len(board) or col<0 or col>=len(board[0]):
+            result = False
+            continue
+        if board[row][col] == 1:
+            result = False
+        board[row][col]+=action
+    return result
+
 
 if __name__ == '__main__':
-    # cases = int(input())
-    cases = 1
+    cases = int(input())
     for case in range(cases):
         board = []
         blank_count = 0
-        # size = list(map(int, input().split()))
-        size = [8, 10]
+        size = list(map(int, input().split()))
         height, width = size[0], size[1]
-        # for row in range(height):
-        #     board.append(list(input()))
-        board = [
-            list("##########"),
-            list("#........#"),
-            list("#........#"),
-            list("#........#"),
-            list("#........#"),
-            list("#........#"),
-            list("#........#"),
-            list("##########"),
-        ]
-        board = [
-            list("...."),
-            list("...."),
-            list("...."),
-        ]
-        for row in board:
-            blank_count += row.count('.')
-        count_board(0,0, blank_count)
+        for row in range(height):
+            new_row = list(map(int,list(input().replace('#','1').replace('.','0'))))
+            board.append(new_row)
+            blank_count += new_row.count(0)
+        count_board(blank_count)
         print(count)
