@@ -1,5 +1,4 @@
 # BOARDCOVER
-count =0
 cards = [
     [(0, 0), (1, 0), (0, 1)],
     [(0, 0), (1, 0), (1, 1)],
@@ -57,7 +56,7 @@ if __name__ == '__main__':
         size = list(map(int, input().split()))
         height, width = size[0], size[1]
         for row in range(height):
-            new_row = list(map(int,list(input().replace('#','1').replace('.','0'))))
+            new_row = [int(i.replace('#', '1').replace('.', '0')) for i in input()]
             board.append(new_row)
             blank_count += new_row.count(0)
         count_board(blank_count)
