@@ -11,8 +11,6 @@ board = []
 def count_board(blank_count):
     global count
     first_free = (-1,-1)
-    if blank_count % 3 != 0:
-        return
 
     # find first index
     for row in range(len(board)):
@@ -47,9 +45,11 @@ def covered(location, cards, action):
 
 
 if __name__ == '__main__':
+    global count
     cases = int(input())
     for case in range(cases):
         board = []
+        count = 0
         blank_count = 0
         size = list(map(int, input().split()))
         height, width = size[0], size[1]
