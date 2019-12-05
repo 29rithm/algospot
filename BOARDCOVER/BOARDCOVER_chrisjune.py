@@ -12,6 +12,9 @@ def count_board(blank_count):
     global count
     first_free = (-1,-1)
 
+    if blank_count % 3 != 0:
+        return
+
     # find first index
     for row in range(len(board)):
         for col in range(len(board[0])):
