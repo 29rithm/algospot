@@ -20,7 +20,7 @@ def count_pair(students):
         pair = other.pop(idx)
 
         # 친구 관계이면 재귀태우고 아니면 바로 롤백
-        if (first, pair) in pairs or (pair, first) in pairs:
+        if [first, pair] in pairs:
             count += count_pair(other)
         other.insert(idx, pair)
     return count
@@ -30,8 +30,8 @@ if __name__ == '__main__':
         info = input().split()
         students = int(info[0])
 
-        pair_input = [int(i) for i in input().split()]
-        pairs = [(pair_input[i], pair_input[i+1]) for i in range(0, len(pair_input), 2)]
+        pair_input = input().split()
+        pairs = [sorted([int(pair_input[i]), int(pair_input[i+1])]) for i in range(0, len(pair_input), 2)]
         print(count_pair([i for i in range(students)]))
 
 
