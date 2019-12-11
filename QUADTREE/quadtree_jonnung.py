@@ -27,3 +27,11 @@ def change_up_down(decompress_list):
     decompress_list[2], decompress_list[3] = copied_decompress_list[0], copied_decompress_list[1]
 
     return "x" + "".join(decompress_list)
+
+
+if __name__ == "__main__":
+    import sys
+    rl = lambda: sys.stdin.readline()
+    c = int(rl())
+    for _ in range(c):
+        print(change_up_down(split_squad(iter(rl()))))
