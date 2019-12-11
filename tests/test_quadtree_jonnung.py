@@ -1,36 +1,31 @@
-import pytest
-
 from QUADTREE.quadtree_jonnung import split_squad, change_up_down
 
 
-@pytest.mark.skip
 def test__문자열에_w와_b로_분류해서_각각을_요소로_갖는_리스트를_만든다():
     case1 = "w"
     case2 = "xwbbb"
 
-    expected_result1 = ["w"]
+    expected_result1 = "w"
     expected_result2 = ["w", "b", "b", "b"]
 
-    result1 = split_squad(case1)
-    result2 = split_squad(case2)
+    result1 = split_squad(iter(case1))
+    result2 = split_squad(iter(case2))
 
     assert result1 == expected_result1
-    print(result2)
     assert result2 == expected_result2
 
 
 def test__문자열이_x로_시작하면_다음에_나오는_문자들은_길이가_4인_리스트에_담긴다():
-    # case1 = "xwbxwbwbw"
+    case1 = "xwbxwbwbw"
     case2 = "xxwwwbxwxwbbbwwxxxwwbbbwwwwbb"
 
-    # expected_result1 = ["w", "b", ["w", "b", "w", "b"], "w"]
+    expected_result1 = ["w", "b", ["w", "b", "w", "b"], "w"]
     expected_result2 = [["w", "w", "w", "b"], ["w", ["w", "b", "b" ,"b"], "w", "w"], [[["w", "w", "b", "b"], "b", "w", "w"], "w", "w", "b"], "b"]
 
-    # result1 = split_squad(case1)
-    result2 = split_squad(case2)
+    result1 = split_squad(iter(case1))
+    result2 = split_squad(iter(case2))
 
-    # assert result1 == expected_result1
-    print(result2)
+    assert result1 == expected_result1
     assert result2 == expected_result2
 
 

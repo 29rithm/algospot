@@ -1,19 +1,17 @@
-def split_squad(compress_str):
-    if compress_str[0] == "x":
-        quad_str = compress_str[1:]
-        temp = []
-        for i, v in enumerate(quad_str):
-            if v == "x":
-                temp.append(split_squad(quad_str[i:]))
+def split_squad(compressed_str_iter):
+    ret = []
+    while True:
+        try:
+            char = next(compressed_str_iter)
+            if char == "x":
+                ret.append(split_squad(compressed_str_iter))
             else:
-                temp.append(v)
+                ret.append(char)
 
-            if len(temp) == 4:
-                return temp
-        return temp
-
-    else:
-        return [compress_str]
+            if len(ret) == 4:
+                return ret
+        except StopIteration:
+            return ret[0]
 
 
 def change_up_down(decompress_list):
