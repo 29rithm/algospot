@@ -19,3 +19,8 @@
 ## 스케줄 및 알고리즘 문제
 ##### 2019-11-21
 - [PICNIC](https://algospot.com/judge/problem/read/PICNIC)
+##### 2019-12-05
+- [BOARDCOVER](https://algospot.com/judge/problem/read/BOARDCOVER)
+##### 2019-12-12
+- [QUADTREE](https://algospot.com/judge/problem/read/QUADTREE)
+
