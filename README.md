@@ -23,4 +23,6 @@
 - [BOARDCOVER](https://algospot.com/judge/problem/read/BOARDCOVER)
 ##### 2019-12-12
 - [QUADTREE](https://algospot.com/judge/problem/read/QUADTREE)
+##### 2019-12-19
+- [FENCE](https://algospot.com/judge/problem/read/FENCE)
 
