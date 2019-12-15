@@ -24,4 +24,3 @@ def test__get_max_square_measure_case_4():
 def test__get_max_square_measure_case_5():
     fence = [1, 3]
     assert 3 == get_max_square_measure(fence)
-

@@ -5,38 +5,25 @@ def get_max_square_measure(fence):
     for i in range(width):
         height = fence[i]
 
-        max_vertical_rectangle_height = height
-        max_vertical_rectangle_width = 1
-        max_horizontal_rectangle_height = height
-        max_horizontal_rectangle_width = 1
+        start_width_index = i
+        end_width_index = i
 
-        for j in range(i + 1, width):
-            next_height = fence[j]
-            if height <= next_height:
-                max_vertical_rectangle_width += 1
+        for j in range(width):
+            if height <= fence[j]:
+                if j <= i:
+                    start_width_index = j
+                else:
+                    end_width_index = j
             else:
-                break
+                if j < i:
+                    start_width_index = i
+                else:
+                    break
 
-        for j in range(i + 1, width):
-            next_height = fence[j]
-            if max_horizontal_rectangle_height > next_height:
-                max_horizontal_rectangle_height = next_height
-            else:
-                break
-            max_horizontal_rectangle_width += 1
-
-        verical_squared_measure = (
-            max_vertical_rectangle_height * max_vertical_rectangle_width
-        )
-        horizontal_squared_measure = (
-            max_horizontal_rectangle_height * max_horizontal_rectangle_width
-        )
+        verical_squared_measure = height * (( end_width_index-start_width_index)+1)
 
         if verical_squared_measure > max_square_measure:
             max_square_measure = verical_squared_measure
-
-        if horizontal_squared_measure > max_square_measure:
-            max_square_measure = horizontal_squared_measure
 
     return max_square_measure
 
@@ -47,5 +34,5 @@ if __name__ == "__main__":
     for i in range(int(tc)):
         width = int(input())
         fence = [int(height) for height in input().split(" ")]
-        result = get_max_square_measure(width, fence)
+        result = get_max_square_measure(fence)
         print(result)
