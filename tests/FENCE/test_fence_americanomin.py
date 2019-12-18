@@ -1,4 +1,4 @@
-from FENCE.fence_jimin import get_max_square_measure
+from FENCE.fence_americanomin import get_max_square_measure
 
 
 def test__get_max_square_measure_case_1():
@@ -24,3 +24,8 @@ def test__get_max_square_measure_case_4():
 def test__get_max_square_measure_case_5():
     fence = [1, 3]
     assert 3 == get_max_square_measure(fence)
+
+
+def test__get_max_square_measure_case_6():
+    fence = [1, 4, 1, 5, 4, 4, 4]
+    assert 16 == get_max_square_measure(fence)
