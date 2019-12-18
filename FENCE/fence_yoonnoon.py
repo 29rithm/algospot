@@ -19,7 +19,7 @@ class Fence:
         self.n = _n
         self.data = _data
         self.stack = []
-        self.memo = []
+        self.max = 0
 
     def solution(self):
         prev = -1
@@ -32,8 +32,8 @@ class Fence:
                     e = self.stack[-1]
                     if e.height > height:
                         e = self.stack.pop(-1)
-                        back = e.start
-                        self.memo.append(e.get_area(idx))
+                        back, candidate = e.start, e.get_area(idx)
+                        self.max = candidate if candidate > self.max else self.max
                         if not self.stack:
                             self.stack.append(FenceElement(e.start, height))
                             break
@@ -43,16 +43,16 @@ class Fence:
                         break
             elif prev < height:
                 self.stack.append(FenceElement(idx, height))
-            else:
-                pass
 
             prev = height
 
-        for e in self.stack[::-1]:
-            self.memo.append(e.get_area(self.n))
+        for e in self.stack:
+            candidate = e.get_area(self.n)
+            self.max = candidate if candidate > self.max else self.max
 
-        self.memo.sort(reverse=True)
-        return self.memo.pop(0)
+        return self.max
+
+    __slots__ = ('n', 'data', 'stack', 'max',)
 
 
 def main():
