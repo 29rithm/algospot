@@ -61,28 +61,21 @@ def test__주어진_위치에서_오른쪽_아래쪽으로_이동할_수_있는�
 
 def test__주어진_위치에서_오른쪽으로_이동_했을때_값을_알수있다(case2):
     jg = JumpGame(3, case2)
-    position, distance = jg.right(0, 0)
-    assert position == (0, 1)
-    assert distance == 1
+    assert jg.right(0, 0) == (0, 1)
 
 
 def test__오른쪽으로_이동_했을때_좌표가_최종_목적지이면_참(case2):
     jg = JumpGame(3, case2)
-    position, distance = jg.right(2, 0)
-    assert position == (2, 2)
-    assert distance == 0
+    assert jg.right(2, 0) == (2, 2)
 
 
 def test__끝까지_갈_수_있는_방법이_존재한다(case2, case3):
     jg1 = JumpGame(3, case2)
-    jg1.jump()
-    assert jg1.reachable is True
+    assert jg1.jump() is True
 
     jg2 = JumpGame(7, case3)
-    jg2.jump()
-    assert jg2.reachable is True
+    assert jg2.jump() is True
 
 def test__끝까지_갈_수_있는_방법이_존재하지_않는다(case4):
     jg3 = JumpGame(7, case4)
-    jg3.jump()
-    assert jg3.reachable is False
+    assert jg3.jump() is False
