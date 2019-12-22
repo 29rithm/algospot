@@ -2,7 +2,7 @@ from collections import defaultdict
 
 
 def calculate_rectangle_size(width, boards):
-    max_height = 0
+    max_rectangle_size = 0
     same_heights_indies = defaultdict(list)
 
     for i, v in enumerate(boards):
@@ -14,26 +14,28 @@ def calculate_rectangle_size(width, boards):
         if i in same_heights_indies[v]:
             continue
 
+        right_width_index = left_width_index = i
         for j in range(i+1, width):
             if v <= boards[j]:
-                height += v
                 if v == boards[j]:
                     same_heights_indies[v].append(j)
             else:
+                right_width_index = j - 1
                 break
 
         for k in range(i-1, -1, -1):
             if v <= boards[k]:
-                height += v
                 if v == boards[k]:
                     same_heights_indies[v].append(k)
             else:
+                left_width_index = k + 1
                 break
 
-        if height > max_height:
-            max_height = height
+        rectangle_size = ((right_width_index - left_width_index) + 1) * height
+        if rectangle_size > max_rectangle_size:
+            max_rectangle_size = rectangle_size
 
-    return max_height
+    return max_rectangle_size
 
 
 if __name__ == '__main__':
