@@ -15,11 +15,11 @@ def has_jump_way(point, game_board):
     if (y_point > max_y_point) or (x_point > max_x_point):
         return False
 
-    if x_point == max_x_point and (y_point == max_y_point):
-        return True
-
     point_value = game_board[y_point][x_point]
 
+    if point_value == 0:
+        return True
+    
     right_point = (y_point, x_point + point_value)
     right_memorize_key = ":".join(map(str, right_point))
     if has_jump_way(right_point, game_board):
