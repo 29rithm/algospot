@@ -21,7 +21,7 @@ class JumpGame:
         return i + move_distance, j
 
     def jump(self, i=0, j=0):
-        if ((i + 1) * (j + 1)) == self.width**2:
+        if i  == j == self.width - 1:
             self.reachable = True
             return True
 
@@ -35,22 +35,18 @@ class JumpGame:
             return self.jump_history[i][j]
 
         down_movable, right_movable = self.check_movable(i, j)
-        if down_movable or right_movable:
-            down_result = False
-            right_result = False
+        down_result = False
+        right_result = False
 
-            if down_movable:
-                next_down_position = self.down(i, j)
-                down_result = self.jump(*next_down_position)
+        if down_movable:
+            next_down_position = self.down(i, j)
+            down_result = self.jump(*next_down_position)
 
-            if right_movable:
-                next_right_position = self.right(i, j)
-                right_result = self.jump(*next_right_position)
+        if right_movable:
+            next_right_position = self.right(i, j)
+            right_result = self.jump(*next_right_position)
 
-            self.jump_history[i][j] = down_result or right_result
-        else:
-            self.jump_history[i][j] = False
-
+        self.jump_history[i][j] = down_result or right_result
         return self.jump_history[i][j]
 
 
