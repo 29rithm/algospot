@@ -25,4 +25,5 @@
 - [QUADTREE](https://algospot.com/judge/problem/read/QUADTREE)
 ##### 2019-12-19
 - [FENCE](https://algospot.com/judge/problem/read/FENCE)
-
+##### 2019-12-26
+- [JUMPGAME](https://algospot.com/judge/problem/read/JUMPGAME)
