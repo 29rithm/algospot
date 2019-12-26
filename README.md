@@ -29,3 +29,4 @@
 - [JUMPGAME](https://algospot.com/judge/problem/read/JUMPGAME)
 ##### 2019-01-02
 - [WILDCARD](https://algospot.com/judge/problem/read/WILDCARD)
+
