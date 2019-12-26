@@ -27,3 +27,5 @@
 - [FENCE](https://algospot.com/judge/problem/read/FENCE)
 ##### 2019-12-26
 - [JUMPGAME](https://algospot.com/judge/problem/read/JUMPGAME)
+##### 2019-01-02
+- [WILDCARD](https://algospot.com/judge/problem/read/WILDCARD)
