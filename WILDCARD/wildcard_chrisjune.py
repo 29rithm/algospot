@@ -29,3 +29,15 @@ if __name__ == '__main__':
             if result:
                 print(string)
 
+# if __name__ == '__main__':
+#     assert check_match('he?p', 'help')
+#     assert check_match('?e?p', 'help')
+#     assert not check_match('he?p', 'helpp')
+#     assert check_match('*p', 'help')
+#     assert check_match('h*', 'help')
+#     assert check_match('h*p', 'help')
+#     assert check_match('*l*', 'help')
+#     assert check_match('*p*', 'help')
+#     assert check_match('*p*', 'papa')
+#     assert not check_match('*p*', 'hello')
+
