@@ -30,4 +30,4 @@
 ##### 2019-01-02
 - [WILDCARD](https://algospot.com/judge/problem/read/WILDCARD)
 ##### 2019-01-09
-- [WILDCARD](https://algospot.com/judge/problem/read/LIS)
+- [LIS](https://algospot.com/judge/problem/read/LIS)
