@@ -9,6 +9,7 @@ def wild_card(pattern, name_list):
         match = re.match(s)
         if match:
             result.append(match.group())
+    result.sort()
     return '\n'.join(result)
 
 if __name__ == '__main__':
@@ -22,3 +23,4 @@ if __name__ == '__main__':
         for nc in range(int(name_count)):
             name_list.append(input())
         print(wild_card(pattern, name_list))
+
