@@ -8,7 +8,7 @@ class Solution:
 
     def _search_lis(self, sequence_data):
         if len(sequence_data) == 1 or self._is_increasing_subsequence(sequence_data):
-            candiate_cnt = len(sequence_data)
+            candiate_cnt = len(set(sequence_data))
 
             if candiate_cnt > self.max_lis_cnt:
                 self.max_lis_cnt = candiate_cnt
