@@ -29,5 +29,5 @@
 - [JUMPGAME](https://algospot.com/judge/problem/read/JUMPGAME)
 ##### 2019-01-02
 - [WILDCARD](https://algospot.com/judge/problem/read/WILDCARD)
-##### 2019-01-09
+##### 2019-01-16
 - [LIS](https://algospot.com/judge/problem/read/LIS)
