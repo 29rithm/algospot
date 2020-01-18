@@ -3,9 +3,11 @@
 ## 스터디 계획
 - 구종만의 [알고리즘 문제 해결 전략](https://book.algospot.com/) 책으로 진행하는 알고리즘 문제 해결 오프라인 스터디
 - 매주 목요일 저녁 6시
-- "알고리즘 문제 해결 전략" 챕터 순서대로 문제 1개 선택해서 [algospot.com](https://algospot.com/)을 통해 제출
+- "알고리즘 문제 해결 전략" 챕터 순서대로 문제 1개 선택해서 [algospot.com](https://algospot.com/)~을 통해 제출~ 또는 [leetcode](https://leetcode.com/)에서 유사한 문제를 선정
 - 프로그래밍 언어는 자유롭게 선택 가능
-- 소스코드는 `{알고스팟 문제 영문명}_{Github 계정명}.{확장자}` 형식으로 저장 후 [이 스터디 저장소](https://github.com/29rithm/algospot) Fork한 개인 저장소에 Commit 후 Pull Request 생성
+- 먼저 [이 스터디 저장소](https://github.com/29rithm/algospot)를 Fork한 뒤 그 저장소를 Clone
+- 문제 해결 소스코드는 `{문제 영문명}_{Github 계정명}.{확장자}` 형식으로 저장 후 Fork한 저장소로 Push
+- 그 다음 개인 저장소(origin)에서 스터디 저장소(upstream)으로 Pull Request 작성
 
 ## COC (Code of Conduct, 행동 지침)
 1. 알고리즘 문제 해결에만 집착하지 않고, 원리와 패턴을 익히는 데 목적을 둔다.
@@ -27,7 +29,9 @@
 - [FENCE](https://algospot.com/judge/problem/read/FENCE)
 ##### 2019-12-26
 - [JUMPGAME](https://algospot.com/judge/problem/read/JUMPGAME)
-##### 2019-01-02
+##### 2020-01-02
 - [WILDCARD](https://algospot.com/judge/problem/read/WILDCARD)
-##### 2019-01-16
+##### 2020-01-16
 - [LIS](https://algospot.com/judge/problem/read/LIS)
+##### 2020-01-30
+- ~QUANTIZATION~ [maximum-subarray](https://leetcode.com/problems/maximum-subarray/)
