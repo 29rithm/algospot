@@ -5,25 +5,20 @@
 # 입력 C <= 10, 패턴, 대상들 <=50
 # 패턴 = 알파벳, 대소문자, 숫자, *, ?
 # 파일명 알파벳, 대소문자, 숫자, 문자열길이 <=100, 공백미포함
-
 def search(pattern, file):
-    p_iter = iter(pattern)
-    f_iter = iter(file)
-    while True:
-        p = next(p_iter, None)
-        f = next(f_iter, None)
+    idx = 0
+    while idx < len(pattern) and idx < len(file) and (pattern[idx] == '?' or pattern[idx] == file[idx]):
+        idx += 1
 
-        if not p and not f:
-            break
+    # 종료됨, 종료된 사유에 따라서 로직을 처리
+    if idx == len(pattern):
+        return idx == len(file)
 
-        # * 로 stack에서 빠져나올떄 인덱스를 확인할 마크
-        mark_idx = -1
-        if p == f or p == '?':
-            continue
-        if not p or not f:
-            return False
-    return True
-
+    if pattern[idx] == '*':
+        for i in range(len(file)-idx+1):
+            if search(pattern[idx+1:], file[idx+i:]):
+                return True
+    return False
 
 if __name__ == '__main__':
     pattern = 'he?p'
@@ -33,6 +28,15 @@ if __name__ == '__main__':
     assert search(pattern, file)
     file = 'helpp'
     assert not search(pattern, file)
+
+    pattern = '*p*'
+    file = 'help'
+    assert search(pattern, file)
+    file = 'papa'
+    assert search(pattern, file)
+    file = 'hello'
+    assert search(pattern, file)
+
     # for _ in range(int(input())):
     #     pattern = input()
     #     ret = []
@@ -42,4 +46,3 @@ if __name__ == '__main__':
     #             ret.append(file)
     #     ret.sort()
     #     print(ret)
-
