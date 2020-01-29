@@ -18,7 +18,7 @@ jobs:
           PULL_REQUEST_URL : ${{ github.event.pull_request.html_url }}
           PULL_REQUEST_BODY : ${{ github.event.pull_request.body }}
         with:
-          channel_id: "GSVMVDZHQ"
+          channel_id: "GQLD2ESAJ"
         id: send_message
       - name: Echo it works
         run: echo "It works!"
