@@ -10,7 +10,7 @@ jobs:
       - name: Send Message
         uses: jonnung/29rithm_algospot_pr_alert@master
         env:
-          WEBHOOK_URL: ${{ secrets.WEBHOOK_URL }}
+          WEBHOOK_URL: "https://bot.29cm.co.kr/slack/message/"
           PULL_REQUEST_NUMBER : ${{ github.event.pull_request.number }}
           PULL_REQUEST_TITLE : ${{ github.event.pull_request.title }}
           PULL_REQUEST_AUTHOR_NAME : ${{ github.event.pull_request.user.login }}
