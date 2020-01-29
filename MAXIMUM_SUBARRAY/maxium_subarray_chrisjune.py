@@ -32,17 +32,17 @@ class Solution:
         # return max(total_sum, self.maxSubArray(nums[:mid]), self.maxSubArray(nums[mid:]))
 
     def maxSubArray(self, nums):
-        total = float('-inf')
-        current = 0
-        for num in nums:
-            current += num
-            total = max(total, current)
-            if current < 0:
-                current = 0
+        total = nums[0]
+        partial_sum = nums[0]
+        for i in range(1, len(nums)):
+            partial_sum = max(partial_sum+nums[i], nums[i])
+            total = max(total, partial_sum)
         return total
 
 
 if __name__ == '__main__':
+    print(Solution().maxSubArray([1]))
+    assert (Solution().maxSubArray([1, -2, 2])) == 2
     assert (Solution().maxSubArray([-3,-2,-2,-3])) == -2
     assert (Solution().maxSubArray([-2,3,0,2,-2,3])) == 6
     assert (Solution().maxSubArray([-2,3,0,2,-2,3])) == 6
