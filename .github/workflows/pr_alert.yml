@@ -1,0 +1,16 @@
+name: PR Alert
+
+on: [pull_request]
+
+jobs:
+  pr_alert:
+    name: PR Alert
+    runs-on: ubuntu-latest
+    steps:
+      - name: Send Message
+        uses: jonnung/29rithm_algospot_pr_alert@master
+        with:
+          channel_id: "GQLD2ESAJ"
+        id: send_message
+      - name: Echo it works
+        run: echo "It works!"
