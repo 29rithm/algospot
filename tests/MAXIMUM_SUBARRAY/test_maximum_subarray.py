@@ -20,3 +20,8 @@ def test_max_subarray_length_one():
     input = [-1]
     result = Solution().maxSubArray(input)
     assert result == -1
+
+def test_max_subarray_length_three():
+    input = [1, -1, 1]
+    result = Solution().maxSubArray(input)
+    assert result == 1
