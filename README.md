@@ -35,3 +35,5 @@
 - [LIS](https://algospot.com/judge/problem/read/LIS)
 ##### 2020-01-30
 - ~QUANTIZATION~ [maximum-subarray](https://leetcode.com/problems/maximum-subarray/)
+##### 2020-02-06
+- [LONGEST_PALINDROMIC_SUBSTRING](https://leetcode.com/problems/longest-palindromic-substring/)
