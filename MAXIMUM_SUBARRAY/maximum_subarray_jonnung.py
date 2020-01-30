@@ -1,17 +1,12 @@
 class Solution:
     def maxSubArray(self, nums):
-        length = len(nums)
+        size = len(nums)
 
-        max = nums[0]
-        for i in range(length):
-            sum = nums[i]
+        current_max = global_max = nums[0]
 
-            if sum > max:
-                max = sum
+        for i in range(1, size):
+            current_max = max(nums[i], nums[i] + current_max)
+            if current_max > global_max:
+                global_max = current_max
 
-            for j in range(i+1, length):
-                sum += nums[j]
-                
-                if sum > max:
-                    max = sum
-        return max
+        return global_max
