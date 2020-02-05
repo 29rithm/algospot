@@ -1,4 +1,4 @@
-from LONGEST_PALINDRONMIC_SUBSTRING.lps_jonnung import Solution
+from LONGEST_PALINDROMIC_SUBSTRING.lps_jonnung import Solution
 
 
 def test_lps_default_testcase():
@@ -35,3 +35,22 @@ def test_lps_twice_equal():
 def test_lps_all_equal():
   tc = "aaaa"
   assert Solution().longestPalindrome(tc) == "aaaa"
+
+
+def test_lps_abcba():
+  tc = "abcba"
+  assert Solution().longestPalindrome(tc) == "abcba"
+
+
+def test_lps_abb():
+  tc = "abb"
+  assert Solution().longestPalindrome(tc) == "bb"
+
+
+def test_lps_abcda():
+  tc = "abcda"
+  assert Solution().longestPalindrome(tc) == "a"
+
+def test_lps_aaabaaaa():
+  tc = "aaabaaaa"
+  assert Solution().longestPalindrome(tc) == "aaabaaa"
