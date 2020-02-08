@@ -1,41 +1,18 @@
 class Solution:
+    def __init__(self):
+        self.climb_history = {1: 1, 2: 2}
+
     def climbStairs(self, n: int) -> int:
-        if n == 0:
-            return 0
+        if n <= 1:
+            return n
 
-        self.climb_history = [None for _ in range(n+1)]
-        self.stairs = [None for _ in range(n)]
+        return self._climb_combination(n)
 
-        return len(self._climb_combination(self.stairs))
+    def _climb_combination(self, n):
+        if not n in self.climb_history:
+            self.climb_history[n] = self._climb_combination(n-1) + self._climb_combination(n-2)
 
-    def _climb_combination(self, stairs):
-        stairs_len = len(stairs)
-        if stairs_len == 1:
-            return [[1]]
-
-        if self.climb_history[stairs_len]:
-            return self.climb_history[stairs_len]
-
-        # 한 계단 오른 경우
-        one_step_combinations = self._climb_combination(stairs[1:])
-        for one_step_combination in one_step_combinations:
-            one_step_combination.insert(0, stairs[0])
-
-        # 두 계단 오른 경우
-        if stairs_len == 2:
-            two_step_combinations = [[2]]
-        else:
-            two_step_combinations = self._climb_combination(stairs[2:])
-
-        combinations = []
-        for one_step_combination in one_step_combinations:
-            combinations.append(one_step_combination)
-
-        for two_step_combination in two_step_combinations:
-            combinations.append(two_step_combination)
-
-        self.climb_history[stairs_len] = combinations
-        return combinations
+        return self.climb_history[n]
 
 if __name__ == '__main__':
     assert Solution().climbStairs(1) == 1
