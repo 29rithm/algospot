@@ -39,3 +39,6 @@
 - [LONGEST_PALINDROMIC_SUBSTRING](https://leetcode.com/problems/longest-palindromic-substring/)
 ##### 2020-02-13
 - [CLIMBING-STAIRS](https://leetcode.com/problems/climbing-stairs/)
+##### 2020-02-20
+- [IS-SUBSEQUENCE](https://leetcode.com/problems/is-subsequence/)
+
