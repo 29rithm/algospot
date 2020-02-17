@@ -40,5 +40,6 @@
 ##### 2020-02-13
 - [CLIMBING-STAIRS](https://leetcode.com/problems/climbing-stairs/)
 ##### 2020-02-20
-- [IS-SUBSEQUENCE](https://leetcode.com/problems/is-subsequence/)
+- ~[IS-SUBSEQUENCE](https://leetcode.com/problems/is-subsequence/)~
+- [JUMP-GAME2](https://leetcode.com/problems/jump-game-ii/)
 
