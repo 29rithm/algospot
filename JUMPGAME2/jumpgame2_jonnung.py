@@ -1,15 +1,18 @@
+from collections import Counter
+
 class Solution:
     lowest = 0
     def jump(self, nums):
         length = len(nums)
+
+        if len(Counter(nums).keys()) == 1:
+            return length - 1
+
         if length == 1:
             return 0
 
         if length == 2:
             return 1
-
-        if length == sum(nums):
-            return length - 1
 
         dst = length - 1
         current = dst - 1
