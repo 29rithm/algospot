@@ -1,7 +1,7 @@
 from collections import Counter
 
 class Solution:
-    lowest = 0
+    minimum_steps = 0
     def jump(self, nums):
         length = len(nums)
 
@@ -14,16 +14,16 @@ class Solution:
         if length == 2:
             return 1
 
-        dst = length - 1
-        current = dst - 1
-        biggest = current
-        while biggest > 0:
-            if current + nums[current] >= dst:
-                biggest = current
+        destination = length - 1
+        current_step = destination - 1
+        widest_stride = current_step
+        while widest_stride > 0:
+            if current_step + nums[current_step] >= destination:
+                widest_stride = current_step
 
-            current -= 1
-            if current < 0:
-                dst = biggest
-                current = biggest - 1
-                self.lowest += 1
-        return self.lowest
+            current_step -= 1
+            if current_step < 0:
+                destination = widest_stride
+                current_step = widest_stride - 1
+                self.minimum_steps += 1
+        return self.minimum_steps
